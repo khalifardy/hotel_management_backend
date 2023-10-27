@@ -37,6 +37,7 @@ class Kamar(models.Model):
     tipe_kasur = models.IntegerField(
         choices=BED, default=TWIN, blank=True, null=True
     )
+    kapasitas = models.IntegerField(null=True, blank=True, max_length=2)
     harga_kamar = models.DecimalField(max_digits=65, decimal_places=2)
 
     class Meta:
@@ -55,3 +56,6 @@ class NomorKamar(models.Model):
         app_label = "room"
         verbose_name = "Nomorkamar"
         verbose_name_plural = "Nomorkamar"
+
+    def __int__(self):
+        return self.no_kamar

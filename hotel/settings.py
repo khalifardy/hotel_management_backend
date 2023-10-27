@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     # internal apps
     "apps.staff",
     "apps.room",
-    "apps.reservation"
+    "apps.reservation",
+    "apps.services"
 ]
 
 SESSION_COOKIE_SECURE = True
