@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     "apps.staff",
     "apps.room",
     "apps.reservation",
-    "apps.services"
+    "apps.services",
+    "apps.auth2"
 ]
 
 SESSION_COOKIE_SECURE = True
