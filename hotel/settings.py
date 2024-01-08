@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-%o35evy@fz62g)v9f@lxl9nu8_&mdz&4koddkxil!df(al6s2%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["ephemera.cloud", 'localhost']
+ALLOWED_HOSTS = ["ephemera.cloud", 'localhost', 'http://localhost:3000/']
 
 
 # Application definition
