@@ -85,6 +85,8 @@ class PesanKamar(APIView):
         date_to = request.data.get("date_to")
         kontak = request.data.get("kontak", None)
 
+
+
         date_from = datetime.datetime.strptime(
             date_from, "%Y-%b-%d")
         date_to = datetime.datetime.strptime(
@@ -170,11 +172,16 @@ class CekKodeBookingGuest(APIView):
 
     def post(self, request):
 
-        code = request.data.get('code_booking', None)
 
-        query = RoomTypeInvoice.objects.filter(invoice__no_invoice=code)
-        serial = RommTypeInvoiceSerializers(query, many=True)
-        return Response(serial.data, status=status.HTTP_200_OK)
+
+            code = request.data.get('code_booking', None)
+
+            query = RoomTypeInvoice.objects.filter(invoice__no_invoice=code,invoice__status=True)
+            if len(query)!=0:
+                serial = RommTypeInvoiceSerializers(query, many=True)
+                return Response(serial.data, status=status.HTTP_200_OK)
+            else:
+                return Response({'msg':'code booking tidak di temukan'})
 
 
 class UpdateCodeBookingGuest(APIView):

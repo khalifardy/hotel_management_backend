@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-%o35evy@fz62g)v9f@lxl9nu8_&mdz&4koddkxil!df(al6s2%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["ephemera.cloud", 'localhost', 'localhost:3000']
+ALLOWED_HOSTS = ["ephemera.cloud", 'localhost', 'localhost:3000','127.0.0.1:3000','127.0.0.1']
 
 
 # Application definition
@@ -68,6 +68,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "hotel.urls"
@@ -138,6 +139,8 @@ REST_FRAMEWORK = {
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 JWT_AUTH = {
     'JWT_ENCODE_HANDLER': 'rest_framework_jwt.utils.jwt_encode_handler',
